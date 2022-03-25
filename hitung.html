@@ -2,78 +2,466 @@
 <html>
 <head>
   <title>Menghutung IPK</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style type="text/css">
+    .table-bordered td, .table-bordered th {
+        border: 1px solid #0c0c0b;
+    }
+  </style>
 </head>
-<body>
- 
-<button onclick="myFunction()">Menghitung Nilai IPK</button>
+<body style="margin: 30px;" background="image/bg.jpg">
+    <div class="row" id="tbl1">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction1()" class="btn btn-primary">Input Nilai Semester 1</button>  
+      </div>
+      <div class="col-12"> 
+        <table class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama1" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul11"></td> 
+            <td id="sks11" align="center"></td> 
+            <td id="nilai11" align="center"></td> 
+            <td id="huruf11" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul12"></td> 
+            <td id="sks12" align="center"></td> 
+            <td id="nilai12" align="center"></td>
+            <td id="huruf12" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul13"></td> 
+            <td id="sks13" align="center"></td> 
+            <td id="nilai13" align="center"></td> 
+            <td id="huruf13" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul14"></td> 
+            <td id="sks14" align="center"></td> 
+            <td id="nilai14" align="center"></td> 
+            <td id="huruf14" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul15"></td> 
+            <td id="sks15" align="center"></td> 
+            <td id="nilai15" align="center"></td> 
+            <td id="huruf15" align="center"></td>  
+          </tr>
+        </table>
+      </div> 
+      <div class="col-12"> 
+          <p id="ip1"></p>
+      </div>  
+    </div>
+    <div class="row" id="tbl2" style="display : none;">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction2()" class="btn btn-primary">Input Nilai Semester 2</button>  
+      </div>
+      <div class="col-12"> 
+        <table border="1" class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama2" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul21"></td> 
+            <td id="sks21" align="center"></td> 
+            <td id="nilai21" align="center"></td> 
+            <td id="huruf21" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul22"></td> 
+            <td id="sks22" align="center"></td> 
+            <td id="nilai22" align="center"></td>
+            <td id="huruf22" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul23"></td> 
+            <td id="sks23" align="center"></td> 
+            <td id="nilai23" align="center"></td> 
+            <td id="huruf23" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul24"></td> 
+            <td id="sks24" align="center"></td> 
+            <td id="nilai24" align="center"></td> 
+            <td id="huruf24" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul25"></td> 
+            <td id="sks25" align="center"></td> 
+            <td id="nilai25" align="center"></td> 
+            <td id="huruf25" align="center"></td>  
+          </tr>
+        </table>
+      </div>
+      <div class="col-12"> 
+          <p id="ip2"></p>
+      </div>  
+    </div>
+    <div class="row" id="tbl3" style="display : none">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction3()" class="btn btn-primary">Input Nilai Semester 3</button>  
+      </div>
+      <div class="col-12"> 
+        <table border="1" class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama3" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul31"></td> 
+            <td id="sks31" align="center"></td> 
+            <td id="nilai31" align="center"></td> 
+            <td id="huruf31" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul32"></td> 
+            <td id="sks32" align="center"></td> 
+            <td id="nilai32" align="center"></td>
+            <td id="huruf32" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul33"></td> 
+            <td id="sks33" align="center"></td> 
+            <td id="nilai33" align="center"></td> 
+            <td id="huruf33" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul34"></td> 
+            <td id="sks34" align="center"></td> 
+            <td id="nilai34" align="center"></td> 
+            <td id="huruf34" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul35"></td> 
+            <td id="sks35" align="center"></td> 
+            <td id="nilai35" align="center"></td> 
+            <td id="huruf35" align="center"></td>  
+          </tr>
+        </table>
+      </div>
+      <div class="col-12"> 
+          <p id="ip3"></p>
+      </div>  
+    </div>
+    <div class="row" id="tbl4" style="display : none">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction4()" class="btn btn-primary">Input Nilai Semester 4</button>  
+      </div>
+      <div class="col-12"> 
+        <table border="1" class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama4" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul41"></td> 
+            <td id="sks41" align="center"></td> 
+            <td id="nilai41" align="center"></td> 
+            <td id="huruf41" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul42"></td> 
+            <td id="sks42" align="center"></td> 
+            <td id="nilai42" align="center"></td>
+            <td id="huruf42" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul43"></td> 
+            <td id="sks43" align="center"></td> 
+            <td id="nilai43" align="center"></td> 
+            <td id="huruf43" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul44"></td> 
+            <td id="sks44" align="center"></td> 
+            <td id="nilai44" align="center"></td> 
+            <td id="huruf44" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul45"></td> 
+            <td id="sks45" align="center"></td> 
+            <td id="nilai45" align="center"></td> 
+            <td id="huruf45" align="center"></td>  
+          </tr>
+        </table>
+      </div>
+      <div class="col-12"> 
+          <p id="ip4"></p>
+      </div>  
+    </div>
+    <div class="row" id="tbl5" style="display : none">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction5()" class="btn btn-primary">Input Nilai Semester 5</button>  
+      </div>
+      <div class="col-12"> 
+        <table border="1" class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama5" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul51"></td> 
+            <td id="sks51" align="center"></td> 
+            <td id="nilai51" align="center"></td> 
+            <td id="huruf51" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul52"></td> 
+            <td id="sks52" align="center"></td> 
+            <td id="nilai52" align="center"></td>
+            <td id="huruf52" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul53"></td> 
+            <td id="sks53" align="center"></td> 
+            <td id="nilai53" align="center"></td> 
+            <td id="huruf53" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul54"></td> 
+            <td id="sks54" align="center"></td> 
+            <td id="nilai54" align="center"></td> 
+            <td id="huruf54" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul55"></td> 
+            <td id="sks55" align="center"></td> 
+            <td id="nilai55" align="center"></td> 
+            <td id="huruf55" align="center"></td>  
+          </tr>
+        </table>
+      </div>
+      <div class="col-12"> 
+          <p id="ip5"></p>
+      </div>  
+    </div>
+    <div class="row" id="tbl6" style="display : none">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction6()" class="btn btn-primary">Input Nilai Semester 6</button>  
+      </div>
+      <div class="col-12"> 
+        <table border="1" class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama6" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul61"></td> 
+            <td id="sks61" align="center"></td> 
+            <td id="nilai61" align="center"></td> 
+            <td id="huruf61" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul62"></td> 
+            <td id="sks62" align="center"></td> 
+            <td id="nilai62" align="center"></td>
+            <td id="huruf62" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul63"></td> 
+            <td id="sks63" align="center"></td> 
+            <td id="nilai63" align="center"></td> 
+            <td id="huruf63" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul64"></td> 
+            <td id="sks64" align="center"></td> 
+            <td id="nilai64" align="center"></td> 
+            <td id="huruf64" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul65"></td> 
+            <td id="sks65" align="center"></td> 
+            <td id="nilai65" align="center"></td> 
+            <td id="huruf65" align="center"></td>  
+          </tr>
+        </table>
+      </div>
+      <div class="col-12"> 
+          <p id="ip6"></p>
+      </div>  
+    </div>
+    <div class="row" id="tbl7" style="display : none">
+      <div class="col-12" style="margin: 20px 0px;">
+          <button onclick="myFunction7()" class="btn btn-primary">Input Nilai Semester 7</button>  
+      </div>
+      <div class="col-12"> 
+        <table border="1" class="table table-bordered" >
+          <tr>
+            <td>Nama :</td>
+            <td id="nama7" colspan="4"></td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="align-middle" align="center"><b>No</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>Mata Kuliah</b></td> 
+            <td rowspan="2" class="align-middle" align="center"><b>SKS</b></td> 
+            <td colspan="2" align="center"><b>Nilai</b></td> 
+          </tr>
+          <tr> 
+            <td align="center"><b>Angka</b></td> 
+            <td align="center"><b>Huruf</b></td>
+          </tr>
+          <tr>
+            <td>1</td> 
+            <td id="matkul71"></td> 
+            <td id="sks71" align="center"></td> 
+            <td id="nilai71" align="center"></td> 
+            <td id="huruf71" align="center"></td> 
+          </tr>
+          <tr>
+            <td>2</td> 
+            <td id="matkul72"></td> 
+            <td id="sks72" align="center"></td> 
+            <td id="nilai72" align="center"></td>
+            <td id="huruf72" align="center"></td>  
+          </tr>
+          <tr>
+            <td>3</td> 
+            <td id="matkul73"></td> 
+            <td id="sks73" align="center"></td> 
+            <td id="nilai73" align="center"></td> 
+            <td id="huruf73" align="center"></td>  
+          </tr>
+          <tr>
+            <td>4</td> 
+            <td id="matkul74"></td> 
+            <td id="sks74" align="center"></td> 
+            <td id="nilai74" align="center"></td> 
+            <td id="huruf74" align="center"></td>  
+          </tr>
+          <tr>
+            <td>5</td> 
+            <td id="matkul75"></td> 
+            <td id="sks75" align="center"></td> 
+            <td id="nilai75" align="center"></td> 
+            <td id="huruf75" align="center"></td>  
+          </tr>
+        </table>
+      </div>
+      <div class="col-12"> 
+          <p id="ip7"></p>
+      </div>  
+    </div>
 
-<table border="1">
-  <tr>
-    <td>Nama :</td>
-    <td id="nama" colspan="4"></td>
-  </tr>
-  <tr>
-    <td rowspan="2">No</td> 
-    <td rowspan="2">Mata Kuliah</td> 
-    <td rowspan="2">SKS</td> 
-    <td colspan="2" align="center">Nilai</td> 
-  </tr>
-  <tr> 
-    <td>Angka</td> 
-    <td>Huruf</td>
-  </tr>
-  <tr>
-    <td>1</td> 
-    <td id="matkul1"></td> 
-    <td id="sks1"></td> 
-    <td id="nilai1"></td> 
-    <td id="huruf1"></td> 
-  </tr>
-  <tr>
-    <td>2</td> 
-    <td id="matkul2"></td> 
-    <td id="sks2"></td> 
-    <td id="nilai2"></td>
-    <td id="huruf2"></td>  
-  </tr>
-  <tr>
-    <td>3</td> 
-    <td id="matkul3"></td> 
-    <td id="sks3"></td> 
-    <td id="nilai3"></td> 
-    <td id="huruf3"></td>  
-  </tr>
-  <tr>
-    <td>4</td> 
-    <td id="matkul4"></td> 
-    <td id="sks4"></td> 
-    <td id="nilai4"></td> 
-    <td id="huruf4"></td>  
-  </tr>
-  <tr>
-    <td>5</td> 
-    <td id="matkul5"></td> 
-    <td id="sks5"></td> 
-    <td id="nilai5"></td> 
-    <td id="huruf5"></td>  
-  </tr>
-</table>
-<p id="ip"></p>
+    <div class="row"> 
+      <div class="col-12"> 
+          <p id="ipk"></p>
+      </div>
+    </div>
 <script>
-function myFunction() {
-  var txtName;
-
+var ttlIp1 = 0;
+var ttlIp2 = 0;
+var ttlIp3 = 0;
+var ttlIp4 = 0;
+var ttlIp5 = 0;
+var ttlIp6 = 0;
+var ttlIp7 = 0;
+var ttlIp8 = 0;
+var ttlIPK = 0;
+var txtName;
+var nilaiSks = 0;
+var ttlNilai = 0; 
+function myFunction(idNama,idMatkul,idSks,idNilai,idHuruf) {
   var txtMatkul = [];
   var txtSks = [];
   var txtNilai = [];
-
-  // Inputan Nama
-  let pName = prompt("Masukkan Nama Anda :", "");
-  if (pName == null || pName == "") {
-    txtName = "";
-  } else {
-    txtName = pName ;
-  }
+  nilaiSks = 0;
+  ttlNilai = 0;
   for (var i = 1; i <= 5; i++) {
     // Inputan Matkul 1
     let pMatkul = prompt("Masukkan Nama Mata Kuliah Ke "+i+" Anda :", "");
@@ -99,38 +487,114 @@ function myFunction() {
       txtNilai.push(pNilai);
     }
   }
-  var nilaiSks = 0;
-  var ttlNilai = 0;
-  var ttlIp = 0;
-  document.getElementById("nama").innerHTML = txtName;
+  document.getElementById(idNama).innerHTML = txtName;
   for (var i = 1; i <= 5; i++) {
     var index = i-1;
-    document.getElementById("matkul"+i).innerHTML = txtMatkul[index];
-    document.getElementById("sks"+i).innerHTML = txtSks[index];
-    document.getElementById("nilai"+i).innerHTML = txtNilai[index];
+    document.getElementById(idMatkul+i).innerHTML = txtMatkul[index];
+    document.getElementById(idSks+i).innerHTML = txtSks[index];
+    document.getElementById(idNilai+i).innerHTML = txtNilai[index];
     switch (txtNilai[index]) {
       case '0': 
-        document.getElementById("huruf"+i).innerHTML = "E";
+        document.getElementById(idHuruf+i).innerHTML = "E";
         break;
       case '1':
-        document.getElementById("huruf"+i).innerHTML = "D";
+        document.getElementById(idHuruf+i).innerHTML = "D";
         break;
       case '2':
-         document.getElementById("huruf"+i).innerHTML = "C";
+         document.getElementById(idHuruf+i).innerHTML = "C";
         break;
       case '3':
-        document.getElementById("huruf"+i).innerHTML = "B";
+        document.getElementById(idHuruf+i).innerHTML = "B";
         break; 
-      default:
-        document.getElementById("huruf"+i).innerHTML = "A";
+      case '4':
+        document.getElementById(idHuruf+i).innerHTML = "A";
+        break;  
     }
-    document.getElementById("nilai"+i).innerHTML = txtNilai[index];
     var nilaiPerMatkul = parseInt(txtSks[index]) * parseInt(txtNilai[index]);
     nilaiSks += parseInt(txtSks[index]);
     ttlNilai += parseInt(nilaiPerMatkul);
   }
-  ttlIp = parseInt(ttlNilai) / parseInt(nilaiSks);
-  document.getElementById("ip").innerHTML = "Nilai IPK saat ini adalah : "+ttlIp;
+}
+function convertNilai(nilai){
+  switch (nilai) {
+      case 0: 
+        return "E";
+        break;
+      case 1:
+        return "D";
+        break;
+      case 2:
+         return "C";
+        break;
+      case 3:
+        return "B";
+        break; 
+      case 4:
+        return "A";
+        break;  
+    }
+}
+function myFunction1(){
+  // Inputan Nama
+  let pName = prompt("Masukkan Nama Anda :", "");
+  if (pName == null || pName == "") {
+    txtName = "";
+  } else {
+    txtName = pName ;
+  }
+  myFunction("nama1","matkul1","sks1","nilai1","huruf1");
+  ttlIp1 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip1").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp1);
+  ttlIPK = parseInt(ttlIp1);
+  document.getElementById("ipk").innerHTML = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
+  document.getElementById('tbl2').style.display  = 'block';
+}
+function myFunction2(){
+  myFunction("nama2","matkul2","sks2","nilai2","huruf2");
+  ttlIp2 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip2").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp2);
+  ttlIPK = ((parseInt(ttlIp1)+parseInt(ttlIp2)) / 2);
+  document.getElementById("ipk").innerHTML  = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
+  document.getElementById('tbl3').style.display  = 'block';
+}
+function myFunction3(){
+  myFunction("nama3","matkul3","sks3","nilai3","huruf3");
+  ttlIp3 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip3").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp3);
+  ttlIPK = ((parseInt(ttlIp1)+parseInt(ttlIp2)+parseInt(ttlIp3)) / 3);
+  document.getElementById("ipk").innerHTML  = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
+  document.getElementById('tbl4').style.display  = 'block';
+}
+function myFunction4(){
+  myFunction("nama4","matkul4","sks4","nilai4","huruf4");
+  ttlIp4 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip4").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp4);
+  ttlIPK = ((parseInt(ttlIp1)+parseInt(ttlIp2)+parseInt(ttlIp3)+parseInt(ttlIp4)) / 4);
+  document.getElementById("ipk").innerHTML  = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
+  document.getElementById('tbl5').style.display  = 'block';
+}
+function myFunction5(){
+  myFunction("nama5","matkul5","sks5","nilai5","huruf5");
+  ttlIp5 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip5").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp5);
+  ttlIPK = ((parseInt(ttlIp1)+parseInt(ttlIp2)+parseInt(ttlIp3)+parseInt(ttlIp4)+parseInt(ttlIp5)) / 5);
+  document.getElementById("ipk").innerHTML  = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
+  document.getElementById('tbl6').style.display  = 'block';
+}
+function myFunction6(){
+  myFunction("nama6","matkul6","sks6","nilai6","huruf6");
+  ttlIp6 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip6").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp6);
+  ttlIPK = ((parseInt(ttlIp1)+parseInt(ttlIp2)+parseInt(ttlIp3)+parseInt(ttlIp4)+parseInt(ttlIp5)+parseInt(ttlIp6)) / 6);
+  document.getElementById("ipk").innerHTML = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
+  document.getElementById('tbl7').style.display  = 'block';
+}
+function myFunction7(){
+  myFunction("nama7","matkul7","sks7","nilai7","huruf7");
+  ttlIp7 = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip7").innerHTML = "Nilai IP semester ini adalah : "+parseInt(ttlIp7);
+  ttlIPK = ((parseInt(ttlIp1)+parseInt(ttlIp2)+parseInt(ttlIp3)+parseInt(ttlIp4)+parseInt(ttlIp5)+parseInt(ttlIp6)+parseInt(ttlIp7)) / 7);
+  document.getElementById("ipk").innerHTML = "Nilai IPK saat ini adalah : <br> Dengan Angka : "+ttlIPK + "<br> Dengan Huruf : "+convertNilai(parseInt(ttlIPK));
 }
 </script>
 
