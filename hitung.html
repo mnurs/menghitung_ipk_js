@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menghutung IPK</title>
+</head>
+<body>
+ 
+<button onclick="myFunction()">Menghitung Nilai IPK</button>
+
+<table border="1">
+  <tr>
+    <td>Nama :</td>
+    <td id="nama" colspan="4"></td>
+  </tr>
+  <tr>
+    <td rowspan="2">No</td> 
+    <td rowspan="2">Mata Kuliah</td> 
+    <td rowspan="2">SKS</td> 
+    <td colspan="2" align="center">Nilai</td> 
+  </tr>
+  <tr> 
+    <td>Angka</td> 
+    <td>Huruf</td>
+  </tr>
+  <tr>
+    <td>1</td> 
+    <td id="matkul1"></td> 
+    <td id="sks1"></td> 
+    <td id="nilai1"></td> 
+    <td id="huruf1"></td> 
+  </tr>
+  <tr>
+    <td>2</td> 
+    <td id="matkul2"></td> 
+    <td id="sks2"></td> 
+    <td id="nilai2"></td>
+    <td id="huruf2"></td>  
+  </tr>
+  <tr>
+    <td>3</td> 
+    <td id="matkul3"></td> 
+    <td id="sks3"></td> 
+    <td id="nilai3"></td> 
+    <td id="huruf3"></td>  
+  </tr>
+  <tr>
+    <td>4</td> 
+    <td id="matkul4"></td> 
+    <td id="sks4"></td> 
+    <td id="nilai4"></td> 
+    <td id="huruf4"></td>  
+  </tr>
+  <tr>
+    <td>5</td> 
+    <td id="matkul5"></td> 
+    <td id="sks5"></td> 
+    <td id="nilai5"></td> 
+    <td id="huruf5"></td>  
+  </tr>
+</table>
+<p id="ip"></p>
+<script>
+function myFunction() {
+  var txtName;
+
+  var txtMatkul = [];
+  var txtSks = [];
+  var txtNilai = [];
+
+  // Inputan Nama
+  let pName = prompt("Masukkan Nama Anda :", "");
+  if (pName == null || pName == "") {
+    txtName = "";
+  } else {
+    txtName = pName ;
+  }
+  for (var i = 1; i <= 5; i++) {
+    // Inputan Matkul 1
+    let pMatkul = prompt("Masukkan Nama Mata Kuliah Ke "+i+" Anda :", "");
+    if (pMatkul == null || pMatkul == "") {
+      txtMatkul.push("");
+    } else {
+      txtMatkul.push(pMatkul); 
+    }
+
+    // Inputan SKS 1
+    let pSks = prompt("Masukkan Jumlah SKS Mata Kuliah Ke "+i+" Anda :", "0");
+    if (pSks == null || pSks == "") {
+      txtSks.push(0);
+    } else {
+      txtSks.push(pSks); 
+    }
+
+    // Inputan Nilai 1
+    let pNilai = prompt("Masukkan Nilai Mata Kuliah Ke "+i+" Antara 0 - 4 Anda :", "0");
+    if (pNilai == null || pNilai == "") {
+      txtNilai.push(0);
+    } else {
+      txtNilai.push(pNilai);
+    }
+  }
+  var nilaiSks = 0;
+  var ttlNilai = 0;
+  var ttlIp = 0;
+  document.getElementById("nama").innerHTML = txtName;
+  for (var i = 1; i <= 5; i++) {
+    var index = i-1;
+    document.getElementById("matkul"+i).innerHTML = txtMatkul[index];
+    document.getElementById("sks"+i).innerHTML = txtSks[index];
+    document.getElementById("nilai"+i).innerHTML = txtNilai[index];
+    switch (txtNilai[index]) {
+      case '0': 
+        document.getElementById("huruf"+i).innerHTML = "E";
+        break;
+      case '1':
+        document.getElementById("huruf"+i).innerHTML = "D";
+        break;
+      case '2':
+         document.getElementById("huruf"+i).innerHTML = "C";
+        break;
+      case '3':
+        document.getElementById("huruf"+i).innerHTML = "B";
+        break; 
+      default:
+        document.getElementById("huruf"+i).innerHTML = "A";
+    }
+    document.getElementById("nilai"+i).innerHTML = txtNilai[index];
+    var nilaiPerMatkul = parseInt(txtSks[index]) * parseInt(txtNilai[index]);
+    nilaiSks += parseInt(txtSks[index]);
+    ttlNilai += parseInt(nilaiPerMatkul);
+  }
+  ttlIp = parseInt(ttlNilai) / parseInt(nilaiSks);
+  document.getElementById("ip").innerHTML = "Nilai IPK saat ini adalah : "+ttlIp;
+}
+</script>
+
+</body>
+</html>
